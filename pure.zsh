@@ -143,7 +143,7 @@ prompt_pure_preprompt_render() {
 	preprompt_parts+=('%F{${prompt_pure_colors[path]}}%~%f')
 
 	# Set vcsh repo name
-	[[ -n $VCSH_REPO_NAME ]] && preprompt_parts+=('%F{$git_color}vcsh(${VCSH_REPO_NAME})%f')
+	[[ -n $VCSH_REPO_NAME ]] && preprompt_parts+=('%F{$prompt_pure_colors[vcsh]}vcsh(${VCSH_REPO_NAME})%f')
 	# Git branch and dirty status info.
 	typeset -gA prompt_pure_vcs_info
 	if [[ -n $prompt_pure_vcs_info[branch] ]]; then
@@ -837,6 +837,7 @@ prompt_pure_setup() {
 		suspended_jobs       red
 		user                 242
 		user:root            default
+		vcsh                 242
 		virtualenv           242
 	)
 	prompt_pure_colors=("${(@kv)prompt_pure_colors_default}")
