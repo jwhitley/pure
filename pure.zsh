@@ -142,6 +142,8 @@ prompt_pure_preprompt_render() {
 	# Set the path.
 	preprompt_parts+=('%F{${prompt_pure_colors[path]}}%~%f')
 
+	# Set vcsh repo name
+	[[ -n $VCSH_REPO_NAME ]] && preprompt_parts+=('%F{$git_color}vcsh(${VCSH_REPO_NAME})%f')
 	# Git branch and dirty status info.
 	typeset -gA prompt_pure_vcs_info
 	if [[ -n $prompt_pure_vcs_info[branch] ]]; then
